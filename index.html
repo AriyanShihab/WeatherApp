@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css" />
+
+</head>
+
+<body>
+
+    <!-- header start -->
+    <section class="top-nav">
+        <div class="left">
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/profile.php?id=100023918611229"><i class="fab fa-facebook"></i></a></i>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/ariyanshihab/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="https://github.com/AriyanShihab"> <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="switch">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- header end -->
+
+
+    <div class="container">
+        <div class="weaher-container">
+            <div class="top-section">
+                <input type="text" placeholder="Search Locattion" class="input-box" />
+
+                <i class="fas fa-search search-button"></i>
+            </div>
+            <div class="weather-description hide-element">
+                <h2 class="city grdnt1">City:</h2>
+                <div class="temp grdnt1">Temp:</div>
+                <div class="d-flex">
+                    <img src="" class="Weather-Icon" alt="" />
+                    <div class="type-of-weather">Discroption:</div>
+                </div>
+
+                <div class="d-flex">
+                    <div class="himidity">Humidity:</div>
+                    <div class="wind-speed">wind Speed:</div>
+                </div>
+            </div>
+        </div>
+        <div class="nameOFCity">
+            <h3 id="cityNames" class="rotate"> </h3>
+        </div>
+    </div>
+
+
+
+
+    <!-- popup -->
+    <div class="popup" id="popupContainer">
+        <div class="card">
+
+            <div class="card-head">
+                <h3>Well,! This is Not Google!</h3>
+                <p>make sure you Have spelled the name of your city correctly</p>
+                <h2 class="example">Here is list of Example</h2>
+                <p class="instruction">**( Just clicked on of those list item)</p>
+
+                <div class="card-list">
+                    <ul>
+                        <li class="list" id="listItem">Dhaka</li>
+                        <li class="list" id="listItem2">Rajshahi</li>
+                        <li class="list" id="listItem3">Khulna</li>
+                        <li class="list" id="listItem4">Rangpur</li>
+                    </ul>
+                </div>
+                <div class="card-buttoun">
+                    <button id="closePopup">Close Popup</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <h2 class="footer-text">Made with Love by <span class="fotter-link"> <a href="https://www.facebook.com/profile.php?id=100023918611229">Ariyan Shihab</a></span></h2>
+        </div>
+    </footer>
+    <!-- script -->
+    <script src="./scrip.js"></script>
+</body>
+
+</html>

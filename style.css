@@ -1,0 +1,333 @@
+/* import google font (poppins) */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+/* defualt css */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-colour);
+    text-transform: capitalize;
+}
+
+
+/* switch */
+
+
+/*Simple css to style it like a toggle switch*/
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 40px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--buttonBg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+}
+
+input:checked+.slider {
+    background-color: var(--buttonBg);
+}
+
+input:checked+.slider:before {
+    transform: translateX(13px);
+}
+
+.slider.round {
+    border-radius: 54px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* dark */
+
+:root {
+    --body-background: #cdd6e5d0;
+    --weather-vontainer: rgb(255, 255, 255);
+    --inpu-info: #12062f;
+    --buttonBg: #12062f;
+    --text-colour: #0e022d;
+    --city: rgb(1, 26, 42);
+    --popupext: rgb(243, 249, 255);
+    --iconBG: #12062f;
+    --footer-link: rgb(4, 31, 111);
+    --placeholder: rgb(248, 237, 237);
+}
+
+[data-theme="dark"] {
+    --body-background: #09132c;
+    --weather-vontainer: #0c1838;
+    --inpu-info: #0f1e45;
+    --buttonBg: #02bc74;
+    --text-colour: #ffffff;
+    --popupext: rgb(10, 4, 76);
+    --iconBG: #02bc74;
+    --footer-link: #02bc74;
+    --placeholder: rgb(248, 237, 237);
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: var(--inpu-info);
+    border-radius: 4px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.top-nav {
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--buttonBg);
+}
+
+.top-nav .left ul li {
+    display: inline-block;
+}
+
+.top-nav .left ul li a {
+    margin: 7px 12px;
+    font-size: 25px;
+    color: var(--buttonBg);
+}
+
+.top-nav .left ul li a i {
+    color: var(--buttonBg);
+}
+
+
+/* body  */
+
+body {
+    background: var(--body-background);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+/* main card contaner */
+
+.weaher-container {
+    background-color: var(--weather-vontainer);
+    padding: 20px 15px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    margin: 30px;
+    transition: 1s;
+}
+
+
+/* weather descroption */
+
+.temp {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-colour);
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* search box */
+
+.input-box {
+    outline: none;
+    border: none;
+    padding: .5em;
+    width: 90%;
+    background-color: var(--inpu-info);
+    font-size: 18px;
+    border-radius: 2px;
+    z-index: 2;
+    color: var(--placeholder);
+}
+
+
+/* search button */
+
+.search-button {
+    font-size: 18px;
+    outline: none;
+    background-color: var(--iconBG);
+    color: var(--placeholder);
+    padding: 8px;
+    text-align: center;
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
+    line-height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.wind-speed,
+.himidity {
+    font-size: 14px;
+    padding: 10px 0;
+    color: var(--placeholder);
+}
+
+::placeholder {
+    color: var(--placeholder);
+}
+
+
+/* popup */
+
+.popup {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    background: rgba(0, 0, 49, 0.374);
+    z-index: 3;
+}
+
+.card {
+    width: 90%;
+    margin: auto;
+    background-color: var(--buttonBg);
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    height: 70vh;
+}
+
+.card-head h3 {
+    color: var(--popupext);
+    font-size: 25px;
+    font-weight: 700;
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--popupext);
+}
+
+.card-head p {
+    color: var(--popupext);
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.example {
+    font-size: 20px;
+    color: var(--popupext);
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.card-list ul li {
+    list-style: none;
+    color: var(--popupext);
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card-buttoun button {
+    padding: 8px 15px;
+    background-color: var(--popupext);
+    color: var(--buttonBg);
+    border-radius: 4px;
+    margin: 10px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.controllOpacity {
+    transform: scale(1);
+}
+
+
+/* footer */
+
+.footer .footer-wrapper {
+    background-color: var(--weather-vontainer);
+    padding: 40px 5vw;
+    position: relative;
+    bottom: 0px;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 16px;
+    color: var(--text-colour);
+}
+
+.footer-wrapper h2 .fotter-link a {
+    color: var(--footer-link);
+    text-decoration: none;
+    cursor: pointer;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--footer-link);
+}
+
+.type-of-weather {
+    color: var(--placeholder);
+}
+
+.rotate {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    color: var(--buttonBg);
+    opacity: .1;
+}
