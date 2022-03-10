@@ -2,6 +2,7 @@ const popup = document.getElementById(`popupContainer`);
 const popupButton = document.getElementById(`closePopup`);
 const userInput = document.querySelector(`.input-box`);
 const cityNames = document.getElementById(`cityNames`);
+const disible = document.getElementById(`disible`);
 
 const toggleSwitch = document.querySelector(
     '.theme-switch input[type="checkbox"]'
@@ -19,7 +20,10 @@ let mainObject = {
                 this.apiKey
             )
             .then((giveResponse) => giveResponse.json())
-            .then((data) => this.showWeather(data))
+            .then((data) => {
+                this.showWeather(data);
+                disible.innerText = `sunsrise and sunset time of ${data.name} (from your Location )`;
+            })
             .catch((err) => {
                 controllPopup();
             });
@@ -49,7 +53,54 @@ let mainObject = {
         document.querySelector(
             `.wind-speed`
         ).innerText = ` wind-speed :  ${speed} KM/H`;
-        cityNames.innerText = name;
+        //  display city and country names
+        const country = data.sys.country;
+        cityNames.innerText = `${name}, ${country}`;
+
+        // display sunrise time
+        const dataSunrise = data.sys.sunrise;
+        const sunriseData = new Date(dataSunrise * 1000);
+        const hrs = sunriseData.getHours();
+        const munite = sunriseData.getMinutes();
+        const sunRise = document.getElementById(`sunRise`);
+
+        // display sunset time
+        const sunset = data.sys.sunset;
+        const sunsetData = new Date(sunset * 1000);
+        const sunsetHrs = sunsetData.getHours();
+        const SunsetMenutes = sunsetData.getMinutes();
+        const sunsetID = document.getElementById(`sunset`);
+
+        let checkHours;
+        if (sunsetHrs >= 12) {
+            let temp = sunsetHrs - 12;
+            checkHours = temp;
+        }
+        // add 0 on single digit
+        if (SunsetMenutes.toString().length === 1) {
+            sunsetID.innerText = `${checkHours} : 0${SunsetMenutes} PM`;
+        } else {
+            sunsetID.innerText = `${checkHours} : ${SunsetMenutes} PM`;
+        }
+        // add 0 on single digit
+        if (munite.toString().length === 1) {
+            sunRise.innerText = `${hrs} : 0${munite} AM`;
+        } else {
+            sunRise.innerText = `${hrs} : ${munite} AM`;
+        }
+
+        // // daynamic time
+        // const lattitude = data.coord.lon;
+        // const long = data.coord.lat;
+
+        // fetch(`https://api.sunrise-sunset.org/json?lat=${lattitude}&lng=
+        // ${long}&callback=mycallback`)
+        //     .then((resolve) => {
+        //         console.log(resolve);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
     },
     search: function() {
         this.getWeather(document.querySelector(`.input-box`).value);

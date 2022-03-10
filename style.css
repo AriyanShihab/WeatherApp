@@ -145,7 +145,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    min-height: 80vh;
 }
 
 
@@ -245,7 +245,7 @@ body {
     padding: 40px 20px;
     border-radius: 10px;
     text-align: center;
-    height: 70vh;
+    min-height: 70vh;
 }
 
 .card-head h3 {
@@ -326,8 +326,19 @@ body {
 }
 
 .rotate {
-    font-size: 4rem;
+    font-size: 3rem;
     letter-spacing: 4px;
     color: var(--buttonBg);
-    opacity: .1;
+    opacity: .4;
+    text-align: center;
+}
+
+.sunIcon {
+    color: #02bc74!important;
+    font-size: 22px;
+    line-height: 100%;
+}
+
+#disible {
+    transition: .5s;
 }
